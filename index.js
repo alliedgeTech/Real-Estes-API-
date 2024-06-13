@@ -4,6 +4,7 @@ const connectDB = require('./config/db');
 const fileUpload = require('express-fileupload');
 const contactRoutes = require('./routes/contactRoutes');
 const galleryRoutes = require('./routes/galleryRoutes');
+const cors = require('cors');
 
 dotenv.config();
 
@@ -11,6 +12,7 @@ connectDB();
 
 const app = express();
 
+app.use(cors()); // Enable CORS
 app.use(express.json());
 app.use(fileUpload({ useTempFiles: true }));
 
