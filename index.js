@@ -4,6 +4,7 @@ const connectDB = require('./config/db');
 const fileUpload = require('express-fileupload');
 const contactRoutes = require('./routes/contactRoutes');
 const galleryRoutes = require('./routes/galleryRoutes');
+const PropertyforRoutes=require('./routes/PropertyforRoutes');
 const cors = require('cors');
 const { connectCloudinary } = require('./config/cloudinary');
 
@@ -35,6 +36,7 @@ app.use(fileUpload({
 // Use routes
 app.use('/contacts', contactRoutes);
 app.use('/gallery', galleryRoutes);
+app.use('/Propertyfor',PropertyforRoutes)
 
 // Set the server port
 const PORT = process.env.PORT || 9001;
