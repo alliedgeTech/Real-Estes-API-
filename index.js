@@ -10,12 +10,12 @@ const contactRoutes = require("./routes/contactRoutes");
 const galleryRoutes = require("./routes/galleryRoutes");
 const PropertyforRoutes = require("./routes/PropertyforRoutes");
 const ProjectTypeRoutes = require("./routes/ProjectTypeRoutes");
-const AreaRoutes = require("./routes/AreaRoutes");
+// const AreaRoutes =require("./routes/AreaRoutes")
 const BedroomsRoutes = require("./routes/BedroomsRoutes");
 const PossessionStatusRoutes = require("./routes/PossessionStatusRoutes");
 const CategoryTypeRoutes = require("./routes/CategoryTypeRoutes");
 const BudgetRoutes = require("./routes/BudgetRoutes");
-const OtherFeaturesRoutes = require("./routes/OtherFeaturesRoutes0");
+const OtherFeaturesRoutes = require("./routes/OtherFeaturesRoutes");
 const AreasqRoutes = require("./routes/AreasqRoutes");
 
 // Connect to Cloudinary
@@ -49,7 +49,7 @@ app.use("/contacts", contactRoutes);
 app.use("/gallery", galleryRoutes);
 app.use("/Propertyfor", PropertyforRoutes);
 app.use("/ProjectType", ProjectTypeRoutes);
-app.use("/Area", AreaRoutes);
+// app.use("/AreaRoutes",AreaRoutes);
 app.use("/Bedrooms", BedroomsRoutes);
 app.use("/PossessionStatus", PossessionStatusRoutes);
 app.use("/CategoryType", CategoryTypeRoutes);
