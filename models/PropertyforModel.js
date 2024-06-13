@@ -1,12 +1,12 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const PropertyforSchema = new mongoose.Schema({
-    Property: {
-        type: String,
-        required: true
-    },
+  Property: {
+    type: String,
+    required: true,
+  },
 });
 
-const Propertyfor = mongoose.model('Propertyfor', PropertyforSchema);
+const Propertyfor = mongoose.model("Propertyfor", PropertyforSchema);
 
 module.exports = Propertyfor;

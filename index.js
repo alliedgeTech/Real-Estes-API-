@@ -1,13 +1,22 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const connectDB = require('./config/db');
-const fileUpload = require('express-fileupload');
-const contactRoutes = require('./routes/contactRoutes');
-const galleryRoutes = require('./routes/galleryRoutes');
-const PropertyforRoutes=require('./routes/PropertyforRoutes');
-const cors = require('cors');
-const { connectCloudinary } = require('./config/cloudinary');
+const express = require("express");
+const dotenv = require("dotenv");
+const connectDB = require("./config/db");
+const fileUpload = require("express-fileupload");
+const cors = require("cors");
+const { connectCloudinary } = require("./config/cloudinary");
 
+// import routes
+const contactRoutes = require("./routes/contactRoutes");
+const galleryRoutes = require("./routes/galleryRoutes");
+const PropertyforRoutes = require("./routes/PropertyforRoutes");
+const ProjectTypeRoutes = require("./routes/ProjectTypeRoutes");
+const AreaRoutes = require("./routes/AreaRoutes");
+const BedroomsRoutes = require("./routes/BedroomsRoutes");
+const PossessionStatusRoutes = require("./routes/PossessionStatusRoutes");
+const CategoryTypeRoutes = require("./routes/CategoryTypeRoutes");
+const BudgetRoutes = require("./routes/BudgetRoutes");
+const OtherFeaturesRoutes = require("./routes/OtherFeaturesRoutes0");
+const AreasqRoutes = require("./routes/AreasqRoutes");
 
 // Connect to Cloudinary
 connectCloudinary();
@@ -28,20 +37,30 @@ app.use(cors());
 app.use(express.json());
 
 // Middleware to handle file uploads
-app.use(fileUpload({
+app.use(
+  fileUpload({
     useTempFiles: true,
-    tempFileDir: '/tmp/'
-}));
+    tempFileDir: "/tmp/",
+  })
+);
 
 // Use routes
-app.use('/contacts', contactRoutes);
-app.use('/gallery', galleryRoutes);
-app.use('/Propertyfor',PropertyforRoutes)
+app.use("/contacts", contactRoutes);
+app.use("/gallery", galleryRoutes);
+app.use("/Propertyfor", PropertyforRoutes);
+app.use("/ProjectType", ProjectTypeRoutes);
+app.use("/Area", AreaRoutes);
+app.use("/Bedrooms", BedroomsRoutes);
+app.use("/PossessionStatus", PossessionStatusRoutes);
+app.use("/CategoryType", CategoryTypeRoutes);
+app.use("/Budget", BudgetRoutes);
+app.use("/OtherFeatures", OtherFeaturesRoutes);
+app.use("/Area", AreasqRoutes);
 
 // Set the server port
 const PORT = process.env.PORT || 9001;
 
 // Start the server
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
