@@ -5,22 +5,41 @@ const fileUpload = require('express-fileupload');
 const contactRoutes = require('./routes/contactRoutes');
 const galleryRoutes = require('./routes/galleryRoutes');
 const cors = require('cors');
+const { connectCloudinary } = require('./config/cloudinary');
 
+
+// Connect to Cloudinary
+connectCloudinary();
+
+// Load environment variables from .env file
 dotenv.config();
 
+// Connect to the database
 connectDB();
 
+// Create an instance of express
 const app = express();
 
-app.use(cors()); // Enable CORS
-app.use(express.json());
-app.use(fileUpload({ useTempFiles: true }));
+// Middleware to enable CORS
+app.use(cors());
 
+// Middleware to parse JSON bodies
+app.use(express.json());
+
+// Middleware to handle file uploads
+app.use(fileUpload({
+    useTempFiles: true,
+    tempFileDir: '/tmp/'
+}));
+
+// Use routes
 app.use('/contacts', contactRoutes);
 app.use('/gallery', galleryRoutes);
 
+// Set the server port
 const PORT = process.env.PORT || 9001;
 
+// Start the server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
