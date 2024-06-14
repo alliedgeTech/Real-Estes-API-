@@ -10,7 +10,7 @@ const contactRoutes = require("./routes/contactRoutes");
 const galleryRoutes = require("./routes/galleryRoutes");
 const PropertyforRoutes = require("./routes/PropertyforRoutes");
 const ProjectTypeRoutes = require("./routes/ProjectTypeRoutes");
-// const AreaRoutes =require("./routes/AreaRoutes")
+const AreaTypeRoutes =require("./routes/AreaTypeRoutes")
 const BedroomsRoutes = require("./routes/BedroomsRoutes");
 const PossessionStatusRoutes = require("./routes/PossessionStatusRoutes");
 const CategoryTypeRoutes = require("./routes/CategoryTypeRoutes");
@@ -49,13 +49,13 @@ app.use("/contacts", contactRoutes);
 app.use("/gallery", galleryRoutes);
 app.use("/Propertyfor", PropertyforRoutes);
 app.use("/ProjectType", ProjectTypeRoutes);
-// app.use("/AreaRoutes",AreaRoutes);
+app.use("/AreaTypeRoutes",AreaTypeRoutes);
 app.use("/Bedrooms", BedroomsRoutes);
 app.use("/PossessionStatus", PossessionStatusRoutes);
 app.use("/CategoryType", CategoryTypeRoutes);
 app.use("/Budget", BudgetRoutes);
 app.use("/OtherFeatures", OtherFeaturesRoutes);
-app.use("/Area", AreasqRoutes);
+app.use("/Areasq", AreasqRoutes);
 
 // Set the server port
 const PORT = process.env.PORT || 9001;
