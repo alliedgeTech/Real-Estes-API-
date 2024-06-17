@@ -10,6 +10,9 @@ router.post('/', propertyController.createProperty);
 // Route to get all properties
 router.get('/', propertyController.getProperties);
 
+// Route to search properties
+router.get('/search', propertyController.searchProperties);
+
 // Route to get a single property by its ID
 router.get('/:id', propertyController.getPropertyById);
 

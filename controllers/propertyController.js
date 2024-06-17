@@ -1,5 +1,3 @@
-// controllers/propertyController.js
-
 const Property = require("../models/propertyModel");
 const { uploadImage, uploadPDF } = require("../config/cloudinary");
 require("dotenv").config();
@@ -127,5 +125,23 @@ exports.deleteProperty = async (req, res) => {
     res.status(200).json({ message: "Property deleted successfully" });
   } catch (err) {
     res.status(500).json({ message: "Error deleting property: " + err.message });
+  }
+};
+
+// Search properties
+exports.searchProperties = async (req, res) => {
+  try {
+    const query = {};
+
+    Object.keys(req.query).forEach(key => {
+      if (req.query[key]) {
+        query[key] = new RegExp(req.query[key], 'i'); // Case-insensitive search
+      }
+    });
+
+    const properties = await Property.find(query);
+    res.status(200).json(properties);
+  } catch (err) {
+    res.status(500).json({ message: "Error searching properties: " + err.message });
   }
 };
